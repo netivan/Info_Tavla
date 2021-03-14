@@ -15,7 +15,7 @@
 
         @*Väder*@
 
-        <div class="col">
+        <div class="col bg-danger">
             <div class="text-left">
                 <h3 class="display-4">Väder</h3>
 
@@ -53,7 +53,7 @@
 
         @*Superenalotto*@
 
-        <div class="col">
+        <div class="col bg-warning">
             <div class="text-left">
                 <h3 class="display-4">Superenalotto</h3>
 
@@ -105,12 +105,12 @@
 
         @*SL  Info*@
 
-        <div class="col">
+        <div class="col bg-primary">
             <div class="text-left">
                 <h1 class="display-4">SL info</h1>
             </div>
             <div>
-                <h2>BussHållplats Stureplan (1010) </h2>
+                <h5>BussHållplats Stureplan (1010) </h5>
             </div>
 
             <table class="text-center">
@@ -118,18 +118,18 @@
                 {
                     foreach (var bus in Model.departure.ResponseData.Buses)
                     {
-                        <tr>
+                <tr>
+                    <td class="text-left">
+                        @bus.LineNumber
+                    </td>
+                    <td class="text-right">
+                        @bus.Destination
+                    </td>
 
-                            <td class="text-left">
-                                @bus.LineNumber
-                            </td>
-                            <td class="text-center">
-                                @bus.DisplayTime
-                            </td>
-                            <td class="text-right">
-                                @bus.Destination
-                            </td>
-                        </tr>
+                    <td class="text-left">
+                        @bus.DisplayTime
+                    </td>
+                </tr>
 
 
                     }
@@ -171,7 +171,7 @@
 
         @*Rader att spela*@
             
-                <div class="col">
+                <div class="col bg-secondary">
                     <div class="text-lg-left">
                         <h3 class="display-4">Rader att SPELA</h3>
 

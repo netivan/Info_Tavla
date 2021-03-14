@@ -80,7 +80,7 @@ namespace Info_Tavla.Pages
         
         public async Task<Superlotto> GetSlottoAsync()
         {
-            string nrDragning = "30-2021";    // drangningen 
+            string nrDragning = "31-2021";    // drangningen 
             string link = $"https://www.superenalotto.it/sisal-gn-proxy-servlet-web/proxy-videoestrazioni/servizi-sisal/api.php/superenalotto/extraction/{nrDragning}/json";
             Task<string> LottoTask = client.GetStringAsync(link);
             string LottoJson = await LottoTask;
