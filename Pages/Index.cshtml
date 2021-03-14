@@ -1,0 +1,223 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+
+
+
+       
+<div class="container">
+    <div class="row">
+
+        @*Väder*@
+
+        <div class="col">
+            <div class="text-left">
+                <h3 class="display-4">Väder</h3>
+
+                <table class="text-right">
+                    @if (Model.weatherStk != null)
+                    {
+                        var x = Model.weatherStk;
+
+                        <tr>
+                            <td class="text-right">
+                                @x.request.query
+                            </td>
+                            <td class="text-right">
+                                @x.location.localtime
+                            </td>
+                            </tr>
+                            <tr>
+                            <td class="text-left">
+                                <p> Visibility  @x.current.visibility </p>
+                            </td>
+
+                            <td class="text-right">
+                                <p class="bg-warning text-black-50">  Temperatur @x.current.temperature  grader</p>
+                            </td>
+
+                            
+                        </tr>
+
+                    }
+                </table>
+
+            </div>
+
+        </div>
+
+        @*Superenalotto*@
+
+        <div class="col">
+            <div class="text-left">
+                <h3 class="display-4">Superenalotto</h3>
+
+                <table class="text-lg-right">
+                    @if (Model.suplotto != null)
+                    {
+                        var x = Model.suplotto;
+
+                        <tr>
+
+                            <td class="text-right">
+                                <p> dragning n @x.concorso datum @x.data_estesa </p>
+                            </td>
+                                                 
+                       
+                      </tr>
+                       <tr>
+                            <td class="text-right">
+                                @x.num_1
+                            </td>
+                            <td class="text-right">
+                                @x.num_2
+                            </td>
+                            <td class="text-right">
+                                @x.num_3
+                            </td>
+                            <td class="text-right">
+                                @x.num_4
+                            </td>
+                            <td class="text-right">
+                                @x.num_5
+                            </td>
+                            <td class="text-right">
+                                @x.num_6
+                            </td>
+                            
+                        </tr>
+
+                    }
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+      
+
+    <div class="row">
+
+        @*SL  Info*@
+
+        <div class="col">
+            <div class="text-left">
+                <h1 class="display-4">SL info</h1>
+            </div>
+            <div>
+                <h2>BussHållplats Stureplan (1010) </h2>
+            </div>
+
+            <table class="text-center">
+                @if (Model.departure.ResponseData != null)
+                {
+                    foreach (var bus in Model.departure.ResponseData.Buses)
+                    {
+                        <tr>
+
+                            <td class="text-left">
+                                @bus.LineNumber
+                            </td>
+                            <td class="text-center">
+                                @bus.DisplayTime
+                            </td>
+                            <td class="text-right">
+                                @bus.Destination
+                            </td>
+                        </tr>
+
+
+                    }
+                }
+
+
+            </table>
+
+            <table class="text-center">
+                @if (Model.departure.ResponseData != null)
+                {
+                    foreach (var bus in Model.departure.ResponseData.Metros)
+                    {
+                        <tr>
+
+                            <td class="text-left">
+                                @bus.LineNumber
+                            </td>
+                            <td class="text-center">
+                                @bus.DisplayTime
+                            </td>
+                            <td class="text-right">
+                                @bus.Destination
+                            </td>
+                        </tr>
+
+                    }
+
+                }
+
+            </table>
+
+
+
+        </div>
+
+
+
+
+        @*Rader att spela*@
+            
+                <div class="col">
+                    <div class="text-lg-left">
+                        <h3 class="display-4">Rader att SPELA</h3>
+
+                        <table class="text-left">
+                            @foreach (var x in Model.rader)
+                            {
+
+                                <tr>
+
+                                    <td class="text-lg-right">
+                                        @x.Rad[0]
+                                    </td>
+
+                                    <td class="text-lg-right">
+                                        @x.Rad[1]
+                                    </td>
+
+                                    <td class="text-lg-right">
+                                        @x.Rad[2]
+                                    </td>
+
+                                    <td class="text-lg-right">
+                                        @x.Rad[3]
+                                    </td>
+
+                                    <td class="text-lg-right">
+                                        @x.Rad[4]
+                                    </td>
+
+                                    <td class="text-lg-right">
+                                        @x.Rad[5]
+                                    </td>
+
+
+                                </tr>
+
+                            }
+                        </table>
+
+                    </div>
+                </div>
+    </div>
+
+               
+        
+    
+
+</div>
+  
